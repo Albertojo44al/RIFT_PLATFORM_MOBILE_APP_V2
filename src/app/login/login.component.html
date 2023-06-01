@@ -16,6 +16,8 @@
     <ion-label position="floating">Contraseña</ion-label>
     <ion-input type="password" [(ngModel)]="password"></ion-input>
   </ion-item>
-
+  
   <ion-button expand="full" (click)="login()">Iniciar Sesión</ion-button>
+  <br><br>
+  <div *ngIf="!isloggedIn" class="p-3 mb-2 bg-danger text-white"> ¡Usuario o contraseña incorrecto!</div>
 </ion-content>
