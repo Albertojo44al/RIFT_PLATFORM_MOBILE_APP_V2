@@ -1,0 +1,6 @@
+{
+	"appId": "com.letsfishroatan.mario",
+	"appName": "mobile-app",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
