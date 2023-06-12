@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'scoreboard',
     loadChildren: () => import('./scoreboard/scoreboard.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   }
 ];
 @NgModule({
