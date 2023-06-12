@@ -1,5 +1,5 @@
-<ion-tabs>
-    <ion-tab-bar slot="bottom">
+<ion-tabs  *ngIf="user.role.id == 1">
+  <ion-tab-bar slot="bottom">
       <ion-tab-button tab="images">
         <ion-icon name="camera"></ion-icon>
         <ion-label>Images</ion-label>

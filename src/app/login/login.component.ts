@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';;
 import { Router } from '@angular/router';
+import { log } from 'console';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +18,13 @@ export class LoginComponent implements OnInit {
     const response = this.authService.login(this.username, this.password);
     if(response){
       console.log('Usuario correcto!');
-      this.router.navigate(['/tabs/images']);
+      let user = JSON.parse(localStorage.getItem("userData"));
+      
+      if (user["role"]["id"] != 1){
+        this.router.navigate(['/scoreboard']);
+      }else{
+        this.router.navigate(['/tabs/images']);
+      }
     }else{
       this.isloggedIn = false;
       console.log('Usuario no valido');
