@@ -46,6 +46,7 @@ export class PhotoService {
             directory: Directory.Data
         });
         // Web platform only: Load the photo as base64 data
+        // console.log(Storage.clear())
         photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
       }
     }

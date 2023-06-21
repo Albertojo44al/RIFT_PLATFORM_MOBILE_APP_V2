@@ -50,6 +50,29 @@ export class DropboxService {
     return this.http.post('https://api.dropboxapi.com/2/files/list_folder', JSON.stringify(folderPath), {headers: headers}).pipe(map(data=>data['entries']));
   }
 
+  uploadFile(path?){
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${this.accessToken}`,
+      'Content-Type': 'application/octet-stream',
+      'Dropbox-API-Arg': JSON.stringify({"path": "/banana.png"})
+
+    });
+
+    let folderPath;
+
+    if(typeof (path) == "undefined" || !path){
+      folderPath = {
+        path: ""
+      };
+    }else{
+      folderPath = {
+        path: path
+      };
+    }
+
+    return this.http.post('https://content.dropboxapi.com/2/files/upload', JSON.stringify(folderPath), {headers: headers}).pipe(map(data=>data['entries']));
+  }
+
   goBackFolder(){
     if(this.folderHistory.length > 0){
       this.folderHistory.pop();

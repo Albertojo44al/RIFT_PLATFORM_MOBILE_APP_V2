@@ -14,6 +14,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { FTP } from '@awesome-cordova-plugins/ftp/ngx';
+import {FileChooser} from '@ionic-native/file-chooser/ngx'
+import {FilePath} from '@ionic-native/file-path/ngx'
+
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule,
@@ -26,6 +29,8 @@ import { FTP } from '@awesome-cordova-plugins/ftp/ngx';
   providers: [
     FTP,
     VideoPlayer,
+    FileChooser,
+    FilePath,
     {
       provide: RouteReuseStrategy, useClass: IonicRouteStrategy,
     },
